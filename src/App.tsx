@@ -3,11 +3,11 @@ import Navbar from './Navbar'
 
 const App = () => {
   return (
-    <>
+    <div  className=' mx-[5vh]  sm:mx-[45vh] min-h-screen mt-4'>
     
-    <Navbar></Navbar>
 
-    <main className='bg-gray-100  flex sm:flex-row flex-col  p-5 items-center justify-center gap-20 h-[80vh] mx-20 mt-20'>
+    <Navbar></Navbar>
+    <main className='  flex sm:flex-row flex-col  p-5 items-center justify-center gap-20 h-[80vh]  mt-20'>
 
       <div className='max-w-120'>
       
@@ -54,7 +54,7 @@ const App = () => {
     
     
     
-    </>
+    </div>
   )
 }
 
