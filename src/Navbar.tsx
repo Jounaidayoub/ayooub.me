@@ -16,9 +16,9 @@ const Navbar = () => {
     <>
       {/* <center> */}
 
-      <header className=" pt-5   text-xl font-mono mx-5 sticky top-0 z-10 ">
+      <header className=" pt-5   text-lg font-mono mx-5 sticky top-0 z-10 ">
         <div className="flex flex-row  justify-between">
-          <div className="text-3xl font-serif ml-5 underline">Ayoub</div>
+          <div className="text-2xl font-serif ml-5 underline">Ayoub</div>
           <div className="flex flex-row gap-4 justify-between">
             <a className="hover:underline " href="#">
               About 
