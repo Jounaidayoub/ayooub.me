@@ -34,7 +34,7 @@ const Navbar = () => {
             </a>
            
             <DarkModeSwitch
-              style={{ marginBottom:"150px" }}
+              style={{ marginBottom:"" }}
               checked={dark}
               onChange={() => {
                 setDark(!dark);
