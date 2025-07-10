@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
 body{
-    
+    @apply  dark:bg-zinc-900 dark:text-white text-zinc-900 bg-amber-100 transition duration-500
+
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
