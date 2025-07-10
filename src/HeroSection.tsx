@@ -9,7 +9,7 @@ const HeroSection = ({ children }: Props) => {
       <main className="  flex sm:flex-row flex-col  p-5 items-center justify-center gap-20 h-[80vh] ">
         <div className="max-w-120">
           <h1 className="text-4xl font-bold pb-15 ">Salam , I'm Ayoub ! 👋</h1>
-          <p className="text-xl   max-w-2xl">
+          <p className="text-xl dark:text-zinc-300 text-zinc-750  max-w-2xl">
             I am a software engineering student. I do{" "}
             <Underline>fullstack development</Underline> and I am kind of
             interested more toward backend stuff (distributed systems, high
