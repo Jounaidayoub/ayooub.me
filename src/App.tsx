@@ -8,6 +8,7 @@ const App = () => {
     <Base>
       <Navbar></Navbar>
       
+      
       <HeroSection></HeroSection>
       
       
