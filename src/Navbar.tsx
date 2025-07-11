@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import UnderlineToBackground from "./fancy/components/text/underline-to-background";
-
+import { toast } from "sonner";
 const Navbar = () => {
   const [dark, setDark] = useState<boolean>(true);
   useEffect(() => {
