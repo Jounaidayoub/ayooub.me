@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import UnderlineToBackground from "./fancy/components/text/underline-to-background";
-
+import { toast } from "sonner";
 const Navbar = () => {
   const [dark, setDark] = useState<boolean>(true);
   useEffect(() => {
@@ -24,6 +24,16 @@ const Navbar = () => {
               Ayouub
             </UnderlineToBackground>
           </div>
+          <button
+            onClick={() =>
+              toast.warning("Event has been created", {
+                description: "Sunday, December 03, 2023 at 9:00 AM",
+                
+              })
+            }
+          >
+            Show Toast
+          </button>
 
           <div className="flex flex-row gap-4 justify-between">
             <a className="hover:underline " href="#">
