@@ -18,19 +18,19 @@ export type Project = {
   image: string;
   techStack: string[];
   codeLink: string;
-  demoLink: string;
+  demoLink?: string;
 };
 
 
 const ProjectCard = (project: Project) => {
   return (
-    <Card className="group relative flex flex-col border-zinc-200 dark:border-zinc-700 overflow-hidden p-0 transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/20 dark:hover:shadow-zinc-800/20 hover:-translate-y-2 bg-white dark:bg-zinc-900">
+    <Card className="group relative flex flex-col w-full border-zinc-200 dark:border-zinc-700 overflow-hidden p-0 transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/20 dark:hover:shadow-zinc-800/20 hover:-translate-y-2 bg-white dark:bg-zinc-900">
       {/* Image Container with Overlay */}
       <div className="relative overflow-hidden">
         <img
           src={project.image}
           alt="Project preview"
-          className="object-cover h-48 w-full transition-transform  duration-500 group-hover:scale-110 z-0"
+          className="object-cover h-40 w-full transition-transform  duration-500 group-hover:scale-110 z-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
@@ -43,7 +43,7 @@ const ProjectCard = (project: Project) => {
             </CardTitle>
           </div>
         </div>
-        <CardDescription className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        <CardDescription className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed">
           {project.description}
         </CardDescription>
       </CardHeader>
@@ -62,7 +62,7 @@ const ProjectCard = (project: Project) => {
                 variant="outline"
                 className="bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200 animate-in fade-in slide-in-from-bottom-2"
               >
-                {project.techStack}
+                {tech}
               </Badge>
             ))}
           </div>
@@ -70,7 +70,7 @@ const ProjectCard = (project: Project) => {
       </CardContent>
 
       <CardFooter className="pb-4 flex gap-3">
-        <Button asChild>
+        {project.codeLink && (<Button asChild>
           <a
             href={project.codeLink}
             target="_blank"
@@ -80,8 +80,8 @@ const ProjectCard = (project: Project) => {
             <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
             View Code
           </a>
-        </Button>
-        <Button asChild variant="outline">
+        </Button>)}
+        {project.demoLink && (<Button asChild variant="outline">
           <a
             href={project.demoLink}
             target="_blank"
@@ -91,7 +91,7 @@ const ProjectCard = (project: Project) => {
             <ExternalLink className="w-4 h-4 mr-2 transition-transform group-hover/btn:-rotate-12" />
             Live Demo
           </a>
-        </Button>
+        </Button>)}
       </CardFooter>
     </Card>
   );
