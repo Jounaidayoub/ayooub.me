@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, ExternalLink, Calendar } from "lucide-react";
-// import imgg from "./CleanShot_2022-12-02_at_10 (1).avif";
+
 
 export type Project = {
   title: string;
