@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import UnderlineToBackground from "./fancy/components/text/underline-to-background";
 
 const Navbar = () => {
   const [dark, setDark] = useState<boolean>(true);
@@ -18,10 +19,15 @@ const Navbar = () => {
 
       <header className=" pt-5   text-lg font-mono mx-5 sticky top-0 z-10 ">
         <div className="flex flex-row  justify-between">
-          <div className="text-2xl font-serif ml-5 underline">Ayoub</div>
+          <div className="text-2xl font-serif ml-5 underline">
+            <UnderlineToBackground targetTextColor="black">
+              Ayouub
+            </UnderlineToBackground>
+          </div>
+
           <div className="flex flex-row gap-4 justify-between">
             <a className="hover:underline " href="#">
-              About 
+              About
             </a>
             <a className="hover:underline " href="#">
               Projects
@@ -32,9 +38,9 @@ const Navbar = () => {
             <a className="hover:underline " href="#">
               Contact
             </a>
-           
+
             <DarkModeSwitch
-              style={{ marginBottom:"" }}
+              style={{ marginBottom: "" }}
               checked={dark}
               onChange={() => {
                 setDark(!dark);
