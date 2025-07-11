@@ -31,7 +31,7 @@ const Navbar = () => {
             <a className="hover:underline " href="#">
               About
             </a>
-            <a className="hover:underline " href="#">
+            <a className="hover:underline " href="#projects">
               Projects
             </a>
             <a className="hover:underline " href="#">
