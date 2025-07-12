@@ -1,6 +1,7 @@
 import React from "react";
 import ProjectCard from "./Card";
 import { type Project } from "./Card";
+import { Link } from "react-router";
 
 const projectData: Project[] = [
   {
@@ -45,11 +46,14 @@ const Projects = () => {
   return (
     <>
       <div
-        id="projects"
-        className="flex min-h-0 w-full items-center justify-center flex-col gap-4 p-4"
+        id="Projects"
+        className="flex min-h-0 w-full items-center justify-center flex-col gap-4 "
       >
-        <h1 className="text-2xl font-bold mb-9">Projects</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full h-[100px]:">
+        <h1 className="text-3xl font-bold ">Projects</h1>
+        <p className=" text-lg  dark:text-zinc-300 text-zinc-750 max-w-2xl text-center pb-10">
+          Here are some of the projects I have worked on recently. You can find more details and code on my GitHub profile.
+        </p>
+        <div className=" grid grid-cols-1 sm:grid-cols-2 gap-3 w-full h-[100px]:">
           {projectData.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
