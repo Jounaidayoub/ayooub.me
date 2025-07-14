@@ -20,7 +20,7 @@ const App = () => {
   return (
     <>
       <Toaster theme="dark" richColors={true} />
-      <BackgroundBeams className="opacity-80 z-0"></BackgroundBeams>
+      <BackgroundBeams className="opacity-80 z-0 pointer-events-none"></BackgroundBeams>
       <Base>
         <Navbar></Navbar>
         
