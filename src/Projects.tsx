@@ -10,7 +10,7 @@ const projectData: Project[] = [
       " a high-performance system responsible for processing and analyzing high-throughput data in real time from diverse sources, with minimal latency. The system is capable of handling large volumes of real-time data streams, thanks to a set of decoupled and distributed components, each of which can be scaled independently.",
     image: "",
     techStack: ["Kafka", "Celery", "Redis", "Python", "FastAPI", "Docker", "Elasticsearch"],
-    codeLink: "",
+    codeLink: "https://github.com/jounaidayoub/finance",
     demoLink: "https://example.com/",
   },
   {
