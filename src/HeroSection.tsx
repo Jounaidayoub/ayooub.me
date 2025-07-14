@@ -42,7 +42,7 @@ const HeroSection = ({ children }: Props) => {
               className="w-2/4 group/btn bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-200 hover:shadow-lg flex items-center justify-center gap-2 group"
             >
               <a
-                href={"/resume_.pdf"}
+                href={"/resume.pdf"}
                 download="resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
