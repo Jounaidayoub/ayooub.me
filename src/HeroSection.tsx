@@ -43,7 +43,7 @@ const HeroSection = ({ children }: Props) => {
             >
               <a
                 href={"/resume.pdf"}
-                download="resume.pdf"
+                // download="resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
