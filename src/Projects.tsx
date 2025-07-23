@@ -8,7 +8,7 @@ const projectData: Project[] = [
     title: "Real-Time Data Processing System",
     description:
       " a high-performance system responsible for processing and analyzing high-throughput data in real time from diverse sources, with minimal latency. The system is capable of handling large volumes of real-time data streams, thanks to a set of decoupled and distributed components, each of which can be scaled independently.",
-    image: "",
+    image:[""],
     techStack: ["Kafka", "Celery", "Redis", "Python", "FastAPI", "Docker", "Elasticsearch"],
     codeLink: "https://github.com/jounaidayoub/finance",
     demoLink: "https://example.com/",
@@ -17,7 +17,7 @@ const projectData: Project[] = [
     title: "Portfolio Website",
     description:
       "A personal portfolio website to showcase my projects and skills.",
-    image: "",
+    image: [""],
     techStack: ["React", "TypeScript", "Tailwind CSS"],
     codeLink: "",
     demoLink: "https://example.com/",
@@ -26,7 +26,7 @@ const projectData: Project[] = [
     title: "Football Manager",
     description:
       "A platform to create and manage local football tournaments, teams, and players. Users can view teams, matches, stats, live scores, and admins can manage matches.",
-    image: "",
+    image: ["images/screens/search.png","images/screens/comming.png","images/screens/team.png","images/screens/profile.png"],
     techStack: ["React", "TypeScript", "Tailwind CSS"],
     codeLink: "",
     demoLink: "https://example.com/",
@@ -35,7 +35,7 @@ const projectData: Project[] = [
     title: "Recipe App",
     description:
       "A recipe app that allows users to search for recipes, save their favorites, filter by tags. It features a user-friendly interface and a wide variety of recipes.",
-    image: "",
+    image: ["",],
     techStack: ["React", "Javascript", "CSS" , "NestJS"],
     codeLink: "",
     demoLink: "https://example.com/",
@@ -47,7 +47,7 @@ const Projects = () => {
     <>
       <div
         id="Projects"
-        className="flex min-h-0 w-full items-center justify-center flex-col gap-4 "
+        className="flex min-h-0 w-full items-center justify-center flex-col gap-4 mx-5 "
       >
         <h1 className="text-3xl font-bold ">Projects</h1>
         <p className=" text-lg  dark:text-zinc-300 text-zinc-750 max-w-2xl text-center pb-10">

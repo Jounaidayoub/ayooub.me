@@ -1,4 +1,3 @@
-
 import {
   Card,
   CardContent,
@@ -11,28 +10,32 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, ExternalLink, Calendar } from "lucide-react";
 
+import Carousel from "./components/ui/Carousel";
 
 export type Project = {
   title: string;
   description: string;
-  image: string;
+  image: string[];
   techStack: string[];
   codeLink: string;
   demoLink?: string;
 };
-
 
 const ProjectCard = (project: Project) => {
   return (
     <Card className="group relative flex flex-col w-full border-zinc-200 dark:border-zinc-700 overflow-hidden p-0 transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/20 dark:hover:shadow-zinc-800/20 hover:-translate-y-2 bg-white dark:bg-zinc-900">
       {/* Image Container with Overlay */}
       <div className="relative overflow-hidden">
-        <img
-          src={project.image}
-          alt="Project preview"
-          className="object-cover h-40 w-full transition-transform  duration-500 group-hover:scale-110 z-0"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <Carousel
+          items={project.image.map((img) => ({ image: img }))}
+          baseWidth={400}
+          autoplay={true}
+          autoplayDelay={3000}
+          pauseOnHover={true}
+          loop={true}
+          // round={true}
+        ></Carousel>
+        <div className="absolute pointer-events-none inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       <CardHeader className="pb-3">
@@ -70,28 +73,32 @@ const ProjectCard = (project: Project) => {
       </CardContent>
 
       <CardFooter className="pb-4 flex gap-3">
-        {project.codeLink && (<Button asChild>
-          <a
-            href={project.codeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 group/btn bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-200 hover:shadow-lg flex items-center justify-center gap-2"
-          >
-            <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
-            View Code
-          </a>
-        </Button>)}
-        {project.demoLink && (<Button asChild variant="outline">
-          <a
-            href={project.demoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 group/btn border-zinc-300 dark:border-zinc-600 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-200 hover:shadow-lg bg-transparent flex items-center justify-center gap-2"
-          >
-            <ExternalLink className="w-4 h-4 mr-2 transition-transform group-hover/btn:-rotate-12" />
-            Live Demo
-          </a>
-        </Button>)}
+        {project.codeLink && (
+          <Button asChild>
+            <a
+              href={project.codeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 group/btn bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-200 hover:shadow-lg flex items-center justify-center gap-2"
+            >
+              <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
+              View Code
+            </a>
+          </Button>
+        )}
+        {project.demoLink && (
+          <Button asChild variant="outline">
+            <a
+              href={project.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 group/btn border-zinc-300 dark:border-zinc-600 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-200 hover:shadow-lg bg-transparent flex items-center justify-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4 mr-2 transition-transform group-hover/btn:-rotate-12" />
+              Live Demo
+            </a>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

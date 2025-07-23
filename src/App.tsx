@@ -8,6 +8,9 @@ import { toast } from "sonner";
 import { Icons } from "./icons";
 // import { ProjectCard } from "./project-card";
 import Projects from "./Projects";
+import { Car } from "lucide-react";
+import Carousel from "./components/ui/Carousel";
+// import { SheetDemo } from "./SheetDemo";
 // import { HomeIcon, NotebookIcon } from "lucide-react";
 
 const App = () => {
@@ -23,7 +26,11 @@ const App = () => {
       <BackgroundBeams className="opacity-80 z-0 pointer-events-none"></BackgroundBeams>
       <Base>
         <Navbar></Navbar>
-        
+        {/* <Carousel
+        autoplay={true}
+        loop={true}>
+
+        </Carousel> */}
         <HeroSection></HeroSection>
 
         <Projects></Projects>
