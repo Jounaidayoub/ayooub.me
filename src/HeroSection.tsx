@@ -71,7 +71,7 @@ const HeroSection = ({ children }: Props) => {
         </div>
 
         <div className="w-50 border-2 border-zinc-900 dark:border-zinc-100 p-2 rounded-full">
-          <img className="rounded-full aspect-square object-cover" src="/images/pfp.jpg" alt="profile picture" />
+          <img className="rounded-full aspect-square object-cover" src="/images/pfp.webp" alt="profile picture" />
         </div>
       </main>
     </>
