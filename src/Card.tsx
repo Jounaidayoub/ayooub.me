@@ -30,7 +30,7 @@ const ProjectCard = (project: Project) => {
           items={project.image.map((img) => ({ image: img }))}
           baseWidth={400}
           autoplay={true}
-          autoplayDelay={3000}
+          autoplayDelay={4000}
           pauseOnHover={true}
           loop={true}
           // round={true}
