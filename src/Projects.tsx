@@ -11,7 +11,7 @@ const projectData: Project[] = [
     image:["images/finance/image.png","images/finance/image1.png"],
     techStack: ["Kafka", "Celery", "Redis", "Python", "FastAPI", "Docker", "Elasticsearch"],
     codeLink: "https://github.com/jounaidayoub/finance",
-    demoLink: "https://example.com/",
+    // demoLink: "https://example.com/",
   },
   {
     title: "Portfolio Website",
@@ -19,8 +19,8 @@ const projectData: Project[] = [
       "A personal portfolio website to showcase my projects and skills.",
     image: [""],
     techStack: ["React", "TypeScript", "Tailwind CSS"],
-    codeLink: "",
-    demoLink: "https://example.com/",
+    codeLink: "https://github.com/jounaidayoub/ayooub.me",
+    demoLink: "https://ayooub.me/",
   },
   {
     title: "Football Manager",
@@ -28,8 +28,8 @@ const projectData: Project[] = [
       "A platform to create and manage local football tournaments, teams, and players. Users can view teams, matches, stats, live scores, and admins can manage matches.",
     image: ["images/screens/search.png","images/screens/comming.png","images/screens/team.png","images/screens/profile.png"],
     techStack: ["React", "TypeScript", "Tailwind CSS"],
-    codeLink: "",
-    demoLink: "https://example.com/",
+    codeLink: "https://github.com/jounaidayoub/foot_match_track",
+    // demoLink: "https://example.com/",
   },
   {
     title: "Recipe App",
@@ -37,8 +37,8 @@ const projectData: Project[] = [
       "A recipe app that allows users to search for recipes, save their favorites, filter by tags. It features a user-friendly interface and a wide variety of recipes.",
     image: ["",],
     techStack: ["React", "Javascript", "CSS" , "NestJS"],
-    codeLink: "",
-    demoLink: "https://example.com/",
+    codeLink: "https://github.com/jounaidayoub/recipes",
+    // demoLink: "https://example.com/",
   },
 ];
 
