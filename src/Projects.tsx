@@ -8,7 +8,7 @@ const projectData: Project[] = [
     title: "Real-Time Data Processing System",
     description:
       " a high-performance system responsible for processing and analyzing high-throughput data in real time from diverse sources, with minimal latency. The system is capable of handling large volumes of real-time data streams, thanks to a set of decoupled and distributed components, each of which can be scaled independently.",
-    image:[""],
+    image:["images/finance/image.png","images/finance/image1.png"],
     techStack: ["Kafka", "Celery", "Redis", "Python", "FastAPI", "Docker", "Elasticsearch"],
     codeLink: "https://github.com/jounaidayoub/finance",
     demoLink: "https://example.com/",
