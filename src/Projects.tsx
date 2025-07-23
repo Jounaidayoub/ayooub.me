@@ -15,22 +15,22 @@ const projectData: Project[] = [
     // demoLink: "https://example.com/",
   },
   {
-    title: "Portfolio Website",
-    description:
-      "A personal portfolio website to showcase my projects and skills.",
-    image: [""],
-    techStack: ["React", "TypeScript", "Tailwind CSS"],
-    codeLink: "https://github.com/jounaidayoub/ayooub.me",
-    demoLink: "https://ayooub.me/",
-  },
-  {
     title: "Football Manager",
     description:
-      "A platform to create and manage local football tournaments, teams, and players. Users can view teams, matches, stats, live scores, and admins can manage matches.",
+    "A platform to create and manage local football tournaments, teams, and players. Users can view teams, matches, stats, live scores, and admins can manage matches.",
     image: ["images/screens/search.png","images/screens/comming.png","images/screens/team.png","images/screens/profile.png"],
     techStack: ["React", "TypeScript", "Tailwind CSS"],
     codeLink: "https://github.com/jounaidayoub/foot_match_track",
     // demoLink: "https://example.com/",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio website to showcase my projects and skills. (the one u browsing right now hhh) ",
+    image: [""],
+    techStack: ["React", "TypeScript", "Tailwind CSS"],
+    codeLink: "https://github.com/jounaidayoub/ayooub.me",
+    demoLink: "https://ayooub.me/",
   },
   {
     title: "Recipe App",
@@ -48,7 +48,7 @@ const Projects = () => {
     <>
       <div
         id="Projects"
-        className="flex min-h-0 w-full items-center justify-center flex-col gap-4 mx-5 "
+        className="flex min-h-0 w-full items-center justify-center flex-col gap-4 mx-5  "
       >
         <h1 className="text-3xl font-bold ">Projects</h1>
         <p className=" text-lg  dark:text-zinc-300 text-zinc-750 max-w-2xl text-center pb-10">
