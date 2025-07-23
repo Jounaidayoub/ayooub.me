@@ -2,7 +2,8 @@ import React from "react";
 import ProjectCard from "./Card";
 import { type Project } from "./Card";
 import { Link } from "react-router";
-
+import { Button } from "@/components/ui/button";
+import { Github } from "lucide-react";
 const projectData: Project[] = [
   {
     title: "Real-Time Data Processing System",
@@ -35,7 +36,7 @@ const projectData: Project[] = [
     title: "Recipe App",
     description:
       "A recipe app that allows users to search for recipes, save their favorites, filter by tags. It features a user-friendly interface and a wide variety of recipes.",
-    image: ["",],
+    image: ["images/recipes/homepage.png", "images/recipes/form.png","images/recipes/info.png"],
     techStack: ["React", "Javascript", "CSS" , "NestJS"],
     codeLink: "https://github.com/jounaidayoub/recipes",
     // demoLink: "https://example.com/",
@@ -58,6 +59,21 @@ const Projects = () => {
             <ProjectCard key={index} {...project} />
           ))}
         </div>
+
+      {/* for more projects link to github */}
+      <div className="m-13">
+        <Button asChild>
+            <a
+              href="https://github.com/jounaidayoub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 group/btn bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-200 hover:shadow-lg flex items-center justify-center gap-2"
+            >
+              For more projects, visit my GitHub
+              <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
+            </a>
+          </Button>
+      </div>
       </div>
     </>
   );
