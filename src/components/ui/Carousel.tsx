@@ -171,7 +171,7 @@ export default function Carousel({
         onAnimationComplete={handleAnimationComplete}
       >
         {carouselItems.map((item, index) => {
-          console.log("item", item);
+          // console.log("item", item);
           const range = [
             -(index + 1) * trackItemOffset,
             -index * trackItemOffset,
