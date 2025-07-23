@@ -197,8 +197,8 @@ export default function Carousel({
             >
               {/* <div className={`${round ? "p-0 m-0" : "mb-4 p-5"}`}> */}
 
-              
-              <img
+
+             <img
           src={item.image}
           // src="
           alt="Project preview"

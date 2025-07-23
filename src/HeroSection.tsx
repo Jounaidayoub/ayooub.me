@@ -10,7 +10,7 @@ interface Props {
 const HeroSection = ({ children }: Props) => {
   return (
     <>
-      <main className="flex sm:flex-row flex-col p-5 items-center justify-center gap-20 h-[80vh] mb-30 sm:mb-0 mb-40">
+      <main className="flex sm:flex-row flex-col p-5 items-center justify-center gap-20 h-[80vh] mb-30 sm:mb-0 mb-70 pt-84 sm:pt-0">
         <div className="max-w-120">
           <h1 className="text-3xl font-bold pb-15 ">
         <RotatingText
@@ -48,7 +48,7 @@ const HeroSection = ({ children }: Props) => {
             rel="noopener noreferrer"
           >
             <Download className="transition-transform duration-200 w-4 h-4 mr-2 group-hover:rotate-12 group-hover:scale-135" />
-            Download My Resume / CV
+            My Resume / CV
           </a>
         </Button>
            
