@@ -30,7 +30,7 @@ export type Project = {
 
 const ProjectCard = (project: Project) => {
   return (
-    <Card className="group relative flex flex-col w-full border-zinc-200 dark:border-zinc-700 overflow-hidden p-0 transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/20 dark:hover:shadow-zinc-800/20 hover:-translate-y-2 bg-white dark:bg-zinc-900">
+    <Card className="group relative flex flex-col w-full border-zinc-200 dark:border-zinc-700 overflow-hidden p-0 transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/20 dark:hover:shadow-zinc-800/20 hover:-translate-y-2 bg-amber-50 sha dark:bg-zinc-900">
       {/* Image Container with Overlay */}
       {project.image && (
         <div className="relative overflow-hidden">
@@ -80,7 +80,6 @@ const ProjectCard = (project: Project) => {
             Tech Stack
           </h4>
           <div className="flex flex-wrap gap-2">
-            {}
             {project.techStack.map((tech) => (
               <Badge
                 key={tech.name}
@@ -102,12 +101,12 @@ const ProjectCard = (project: Project) => {
 
       <CardFooter className="pb-4 flex gap-3">
         {project.codeLink && (
-          <Button asChild>
+          <Button asChild variant={"outline"}>
             <a
               href={project.codeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 group/btn bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-200 hover:shadow-lg flex items-center justify-center gap-2"
+              className="flex-1 group/btn border-zinc-300 dark:border-zinc-600 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-200 hover:shadow-lg bg-transparent flex items-center justify-center gap-2"
             >
               <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
               View Code
@@ -115,12 +114,12 @@ const ProjectCard = (project: Project) => {
           </Button>
         )}
         {project.demoLink && (
-          <Button asChild variant="outline">
+          <Button asChild >
             <a
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 group/btn border-zinc-300 dark:border-zinc-600 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-200 hover:shadow-lg bg-transparent flex items-center justify-center gap-2"
+              className="flex-1 group/btn  bg-zinc-900 dark:bg-zinc-200 text-red-500 dark:text-red-700 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-200 hover:shadow-lg flex items-center justify-center gap-2"
             >
               <ExternalLink className="w-4 h-4 mr-2 transition-transform group-hover/btn:-rotate-12" />
               Live Demo
