@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
+  const email = "contact@ayooub.me";
+  const [copied, setCopied] = useState(false);
+  const timeoutRef = useRef<number | null>(null);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+      timeoutRef.current = window.setTimeout(() => setCopied(false), 2000);
+    } catch (e) {
+      // fallback
+      const textarea = document.createElement("textarea");
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      setCopied(true);
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+      timeoutRef.current = window.setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -10,15 +34,21 @@ const Contact = () => {
     >
       <h2 className="text-3xl font-bold">Contact</h2>
       <p className="text-center max-w-xl text-zinc-700 dark:text-zinc-300">
-        Have an opportunity, a question, or just want to say hi? Reach out by
-        email or via any of the platforms below.
+        Have an opportunity, a question, or just want to say hi? Reach out via
+        any of the platforms below.
       </p>
 
       <div className="flex flex-col md:flex-row items-center gap-4">
-        <Button asChild variant="outline" className="gap-2">
-          <a href="mailto:ayoub.jounaidi.dev@gmail.com">
-            <Mail className="w-4 h-4" /> Email Me
-          </a>
+        <Button
+          variant="outline"
+          className={`gap-2 relative ${
+            copied ? "text-green-600 dark:text-green-400 border-green-400" : ""
+          }`}
+          onClick={handleCopy}
+          aria-live="polite"
+        >
+          <Mail className="w-4 h-4" />
+          {copied ? "Copied!" : "Copy Email"}
         </Button>
         <Button asChild className="gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200">
           <a
@@ -31,59 +61,14 @@ const Contact = () => {
         </Button>
         <Button asChild variant="outline" className="gap-2">
           <a
-            href="https://www.linkedin.com/in/ayoub-jounaidi" 
-            target="_blank" 
+            href="https://www.linkedin.com/in/jounaidayoub/"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <Linkedin className="w-4 h-4" /> LinkedIn
           </a>
         </Button>
       </div>
-
-      <form
-        action="" //will make this wokr later
-        method="POST"
-        className="mt-8 w-full max-w-xl grid grid-cols-1 gap-4"
-      >
-        <div className="grid gap-2">
-          <label htmlFor="name" className="text-sm font-medium">Name</label>
-          <input
-            id="name"
-            name="name"
-            required
-            className="rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600"
-            placeholder="Your name"
-          />
-        </div>
-        <div className="grid gap-2">
-          <label htmlFor="email" className="text-sm font-medium">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            required
-            className="rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600"
-            placeholder="you@example.com"
-          />
-        </div>
-        <div className="grid gap-2">
-          <label htmlFor="message" className="text-sm font-medium">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            required
-            className="rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 resize-y"
-            placeholder="Write your message..."
-          />
-        </div>
-        <Button type="submit" className="justify-self-start bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200">
-          Send
-        </Button>
-        <p className="text-xs text-zinc-500 dark:text-zinc-400 -mt-2">
-          This form currently posts to a placeholder endpoint. You can replace it with your own API.
-        </p>
-      </form>
     </section>
   );
 };

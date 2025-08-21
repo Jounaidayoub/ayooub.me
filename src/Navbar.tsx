@@ -92,7 +92,7 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex flex-row gap-4 items-center">
           <a className="hover:underline" href="#">About</a>
-          <a className="hover:underline" href="#projects">Projects</a>
+          <a className="hover:underline" href="#Projects">Projects</a>
           {/* <a className="hover:underline" href="#">Blog</a> */}
           <a className="hover:underline" href="#contact">Contact</a>
         </nav>
@@ -122,7 +122,7 @@ const Navbar = () => {
       {menuOpen && (
         <nav className="md:hidden flex flex-col gap-4 mt-2 bg-white dark:bg-gray-900 p-4 rounded shadow rounded-2xl">
           <a className="hover:underline" href="#" onClick={() => setMenuOpen(false)}>About</a>
-          <a className="hover:underline" href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+          <a className="hover:underline" href="#Projects" onClick={() => setMenuOpen(false)}>Projects</a>
           {/* <a className="hover:underline" href="#" onClick={() => setMenuOpen(false)}>Blog</a> */}
           <a className="hover:underline" href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>

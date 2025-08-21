@@ -109,7 +109,7 @@ const ProjectCard = (project: Project) => {
               className="flex-1 group/btn border-zinc-300 dark:border-zinc-600 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-200 hover:shadow-lg bg-transparent flex items-center justify-center gap-2"
             >
               <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
-              View Code
+              Source Code
             </a>
           </Button>
         )}
