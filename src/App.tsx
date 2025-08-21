@@ -10,8 +10,7 @@ import { Icons } from "./icons";
 import Projects from "./Projects";
 import { Car } from "lucide-react";
 import Carousel from "./components/ui/Carousel";
-// import { SheetDemo } from "./SheetDemo";
-// import { HomeIcon, NotebookIcon } from "lucide-react";
+import Contact from "./Contact";
 
 const App = () => {
   setTimeout(() => {
@@ -30,6 +29,7 @@ const App = () => {
         <HeroSection></HeroSection>
 
         <Projects></Projects>
+        <Contact></Contact>
         
       </Base>
     </>
