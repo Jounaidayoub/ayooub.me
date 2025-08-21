@@ -26,11 +26,7 @@ const App = () => {
       <BackgroundBeams className="opacity-80 z-0 pointer-events-none"></BackgroundBeams>
       <Base>
         <Navbar></Navbar>
-        {/* <Carousel
-        autoplay={true}
-        loop={true}>
-
-        </Carousel> */}
+       
         <HeroSection></HeroSection>
 
         <Projects></Projects>

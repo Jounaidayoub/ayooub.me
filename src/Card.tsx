@@ -9,34 +9,56 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, ExternalLink, Calendar } from "lucide-react";
+import StackIcon from "tech-stack-icons";
 
 import Carousel from "./components/ui/Carousel";
+
+export type TechStack = {
+  name: string;
+  icon?: string;
+};
 
 export type Project = {
   title: string;
   description: string;
-  image: string[];
-  techStack: string[];
+  image?: string[];
+  techStack: TechStack[];
   codeLink: string;
   demoLink?: string;
+  video?: string;
 };
 
 const ProjectCard = (project: Project) => {
   return (
     <Card className="group relative flex flex-col w-full border-zinc-200 dark:border-zinc-700 overflow-hidden p-0 transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/20 dark:hover:shadow-zinc-800/20 hover:-translate-y-2 bg-white dark:bg-zinc-900">
       {/* Image Container with Overlay */}
-      <div className="relative overflow-hidden">
-        <Carousel
-          items={project.image.map((img) => ({ image: img }))}
-          baseWidth={400}
-          autoplay={true}
-          autoplayDelay={4000}
-          pauseOnHover={true}
-          loop={true}
-          // round={true}
-        ></Carousel>
-        <div className="absolute pointer-events-none inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
+      {project.image && (
+        <div className="relative overflow-hidden">
+          <Carousel
+            items={project.image.map((img) => ({ image: img }))}
+            baseWidth={400}
+            autoplay={true}
+            autoplayDelay={4000}
+            pauseOnHover={true}
+            loop={true}
+            // round={true}
+          ></Carousel>
+          <div className="absolute pointer-events-none inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+      )}
+      {project.video && (
+        <div className="relative overflow-hidden">
+          <video
+            src={project.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="pointer-events-none mx-auto w-full object-cover object-top" // needed because random black line at bottom of video
+          />
+          <div className="absolute pointer-events-none inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+      )}
 
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
@@ -59,13 +81,19 @@ const ProjectCard = (project: Project) => {
           </h4>
           <div className="flex flex-wrap gap-2">
             {}
-            {project.techStack.map((tech: string) => (
+            {project.techStack.map((tech) => (
               <Badge
-                key={tech}
+                key={tech.name}
                 variant="outline"
                 className="bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200 animate-in fade-in slide-in-from-bottom-2"
               >
-                {tech}
+                {tech.icon && (
+                  <StackIcon
+                    name={tech.icon}
+                    className="inline-block ml-1 w-4 h-4"
+                  />
+                )}
+                {tech.name}
               </Badge>
             ))}
           </div>

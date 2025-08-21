@@ -6,20 +6,69 @@ import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
 const projectData: Project[] = [
   {
+    title: "URL Shortener",
+    description:
+      "A URL shortener that allows users to shorten long URLs into short links. it does run on Edge. using Cloudflare Workers, it provides a fast and nearly instant experience.",
+    video: "videos/urlshortner.mp4",
+    techStack: [
+      { name: "Cloudflare Workers", icon: "cloudflare" },
+      { name: "React", icon: "react" },
+      { name: "TS", icon: "typescript" },
+      { name: "TailwindCSS", icon: "tailwindcss" },
+      { name: "Hono", icon: "hono" },
+    ],
+    // techStackIcons: ["React", "TS", "TailwindCSS", "Cloudflare Workers", "Hono"],
+
+    codeLink: "https://github.com/jounaidayoub/bit",
+    demoLink: "https://short.ayooub.me/",
+    },
+    {
+    title: "Patient Management System",
+    description:
+      "A demo application built for a healthcare company to manage patients and appointments efficiently. It features a user-friendly calendar interface for scheduling and tracking appointments, making client management simple and intuitive.",
+    video: "videos/health-calendar.mp4",
+    techStack: [
+      { name: "Angular v20", icon: "angular" },
+      { name: "TS", icon: "typescript" },
+      { name: "TailwindCSS", icon: "tailwindcss" },
+    ],
+    codeLink: "https://github.com/jounaidayoub/ng-calendar",
+    demoLink: "http://pratisoft-demo.ayooub.me/",
+    },
+    {
     title: "Real-Time Data Processing System",
     description:
       " a high-performance system responsible for processing and analyzing high-throughput data in real time from diverse sources, with minimal latency. The system is capable of handling large volumes of real-time data streams, thanks to a set of decoupled and distributed components, each of which can be scaled independently.",
-    image:["images/finance/image.png","images/finance/image1.png"],
-    techStack: ["Kafka", "Celery", "Redis", "Python", "FastAPI", "Docker", "Elasticsearch"],
+    image: ["images/finance/image.png", "images/finance/image1.png"],
+    techStack: [
+      { name: "Kafka", icon: "kafka" },
+      { name: "Celery", icon: "celery" },
+      { name: "Redis", icon: "redis" },
+      { name: "Python", icon: "python" },
+      { name: "FastAPI", icon: "fastapi" },
+      { name: "Docker", icon: "docker" },
+      { name: "Elasticsearch", icon: "elastic" },
+    ],
     codeLink: "https://github.com/jounaidayoub/finance",
     // demoLink: "https://example.com/",
   },
   {
     title: "Football Manager",
     description:
-    "A platform to create and manage local football tournaments, teams, and players. Users can view teams, matches, stats, live scores, and admins can manage matches.",
-    image: ["images/screens/search.png","images/screens/comming.png","images/screens/team.png","images/screens/profile.png"],
-    techStack: ["React", "TypeScript", "Tailwind CSS"],
+      "A platform to create and manage local football tournaments, teams, and players. Users can view teams, matches, stats, live scores, and admins can manage matches.",
+    image: [
+      "images/screens/search.png",
+      "images/screens/comming.png",
+      "images/screens/team.png",
+      "images/screens/profile.png",
+    ],
+    techStack: [
+      { name: "PHP", icon: "php" },
+      { name: "HTML", icon: "html5" },
+      { name: "CSS", icon: "css3" },
+      { name: "Javascript", icon: "js" },
+      { name: "Mysql", icon: "mysql" },
+    ],
     codeLink: "https://github.com/jounaidayoub/foot_match_track",
     // demoLink: "https://example.com/",
   },
@@ -28,7 +77,11 @@ const projectData: Project[] = [
     description:
       "A personal portfolio website to showcase my projects and skills. (the one u browsing right now hhh) ",
     image: [""],
-    techStack: ["React", "TypeScript", "Tailwind CSS"],
+    techStack: [
+      { name: "React", icon: "react" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Tailwind CSS", icon: "tailwindcss" },
+    ],
     codeLink: "https://github.com/jounaidayoub/ayooub.me",
     demoLink: "https://ayooub.me/",
   },
@@ -36,8 +89,17 @@ const projectData: Project[] = [
     title: "Recipe App",
     description:
       "A recipe app that allows users to search for recipes, save their favorites, filter by tags. It features a user-friendly interface and a wide variety of recipes.",
-    image: ["images/recipes/homepage.png", "images/recipes/form.png","images/recipes/info.png"],
-    techStack: ["React", "Javascript", "CSS" , "NestJS"],
+    image: [
+      "images/recipes/homepage.png",
+      "images/recipes/form.png",
+      "images/recipes/info.png",
+    ],
+    techStack: [
+      { name: "React", icon: "react" },
+      { name: "Javascript", icon: "javascript" },
+      { name: "CSS", icon: "css" },
+      { name: "NestJS", icon: "nestjs" },
+    ],
     codeLink: "https://github.com/jounaidayoub/recipes",
     // demoLink: "https://example.com/",
   },
@@ -52,7 +114,8 @@ const Projects = () => {
       >
         <h1 className="text-3xl font-bold ">Projects</h1>
         <p className=" text-lg  dark:text-zinc-300 text-zinc-750 max-w-2xl text-center pb-10">
-          Here are some of the projects I have worked on recently. You can find more details and code on my GitHub profile.
+          Here are some of the projects I have worked on recently. You can find
+          more details and code on my GitHub profile.
         </p>
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-3 w-full h-[100px]:">
           {projectData.map((project, index) => (
@@ -60,9 +123,9 @@ const Projects = () => {
           ))}
         </div>
 
-      {/* for more projects link to github */}
-      <div className="m-13">
-        <Button asChild>
+        {/* for more projects link to github */}
+        <div className="m-13">
+          <Button asChild>
             <a
               href="https://github.com/jounaidayoub"
               target="_blank"
@@ -73,7 +136,7 @@ const Projects = () => {
               <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
             </a>
           </Button>
-      </div>
+        </div>
       </div>
     </>
   );
