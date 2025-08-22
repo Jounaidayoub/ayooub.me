@@ -13,9 +13,9 @@ const projectData: Project[] = [
     techStack: [
       { name: "Cloudflare Workers", icon: "cloudflare" },
       { name: "React", icon: "react" },
-      { name: "TS", icon: "typescript" },
+      { name: "TypeScript", icon: "typescript" },
       { name: "TailwindCSS", icon: "tailwindcss" },
-      { name: "Hono", icon: "hono" },
+      { name: "Hono" }, // No icon available for Hono
     ],
     // techStackIcons: ["React", "TS", "TailwindCSS", "Cloudflare Workers", "Hono"],
 
@@ -29,7 +29,7 @@ const projectData: Project[] = [
     video: "videos/health-calendar.mp4",
     techStack: [
       { name: "Angular v20", icon: "angular" },
-      { name: "TS", icon: "typescript" },
+      { name: "TypeScript", icon: "typescript" },
       { name: "TailwindCSS", icon: "tailwindcss" },
     ],
     codeLink: "https://github.com/jounaidayoub/ng-calendar",
@@ -41,11 +41,11 @@ const projectData: Project[] = [
       " a high-performance system responsible for processing and analyzing high-throughput data in real time from diverse sources, with minimal latency. The system is capable of handling large volumes of real-time data streams, thanks to a set of decoupled and distributed components, each of which can be scaled independently.",
     image: ["images/finance/image.png", "images/finance/image1.png"],
     techStack: [
-      { name: "Kafka", icon: "kafka" },
-      { name: "Celery", icon: "celery" },
+      { name: "Apache Kafka" }, // No icon available 
+      { name: "Celery" }, // No icon available
       { name: "Redis", icon: "redis" },
       { name: "Python", icon: "python" },
-      { name: "FastAPI", icon: "fastapi" },
+      { name: "FastAPI" }, // No icon available
       { name: "Docker", icon: "docker" },
       { name: "Elasticsearch", icon: "elastic" },
     ],
@@ -66,8 +66,8 @@ const projectData: Project[] = [
       { name: "PHP", icon: "php" },
       { name: "HTML", icon: "html5" },
       { name: "CSS", icon: "css3" },
-      { name: "Javascript", icon: "js" },
-      { name: "Mysql", icon: "mysql" },
+      { name: "JavaScript", icon: "js" },
+      { name: "MySQL", icon: "mysql" },
     ],
     codeLink: "https://github.com/jounaidayoub/foot_match_track",
     // demoLink: "https://example.com/",
@@ -76,7 +76,7 @@ const projectData: Project[] = [
     title: "Portfolio Website",
     description:
       "A personal portfolio website to showcase my projects and skills. (the one u browsing right now hhh) ",
-    image: [""],
+    image: ["images/portfolio/portfolio-screenshot.png"],
     techStack: [
       { name: "React", icon: "react" },
       { name: "TypeScript", icon: "typescript" },
@@ -96,8 +96,8 @@ const projectData: Project[] = [
     ],
     techStack: [
       { name: "React", icon: "react" },
-      { name: "Javascript", icon: "javascript" },
-      { name: "CSS", icon: "css" },
+      { name: "JavaScript", icon: "js" },
+      { name: "CSS", icon: "css3" },
       { name: "NestJS", icon: "nestjs" },
     ],
     codeLink: "https://github.com/jounaidayoub/recipes",
