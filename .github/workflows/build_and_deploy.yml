@@ -32,3 +32,33 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+      - name: Push to gh pages root repo (Jounaidayoub.github.io)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+
+          git clone https://user:$GH_TOKEN@github.com/Jounaidayoub/jounaidayoub.github.io/ 
+
+
+          cd jounaidayoub.github.io/
+
+
+          git config --global user.name "Ayoub"
+          git config --global user.email "123956897+Jounaidayoub@users.noreply.github.com"
+          git config --unset-all http.https://github.com/.extraheader
+
+          
+          cp -r ../dist/* .
+          
+          git add .
+
+          git commit -m "Deploy to GitHub Pages  ${{ github.sha }} "
+
+          # git push origin main 
+
+          git push https://jounaidayoub:${GH_TOKEN}@github.com/Jounaidayoub/jounaidayoub.github.io.git main
+
+          
+        
+
+        
