@@ -28,6 +28,7 @@ jobs:
       - run: npm ci -f
       - run: npm run build --if-present
       - uses: peaceiris/actions-gh-pages@v4
+        if: github.event_name == 'push'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
