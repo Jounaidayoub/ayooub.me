@@ -13,12 +13,7 @@ import Carousel from "./components/ui/Carousel";
 import Contact from "./Contact";
 
 const App = () => {
-  setTimeout(() => {
-    toast.warning("The porfolio is under-construction", {
-      description: "it will be ready soon (hopefully)",
-    });
-  }, 1000);
-  // toast("Event has been created", {
+  // Removed under construction toast for more professional appearance
   return (
     <>
       <Toaster theme="dark" richColors={true} />

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 body{
     @apply  dark:bg-zinc-900 dark:text-white text-zinc-900 bg-amber-100 transition duration-500
 
