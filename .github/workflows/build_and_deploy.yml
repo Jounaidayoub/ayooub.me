@@ -27,43 +27,35 @@ jobs:
       - name: Build application
         run: npm run build
         
-      - name: Upload build artifacts
+      - name: Deploy to GitHub Pages (this repo)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/upload-artifact@v4
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: dist
-          path: dist/
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    
-    steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
-          
-      - name: Deploy to GitHub Pages repository
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+        
+      - name: Deploy to external GitHub Pages repository
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          # Validate that PAT_TOKEN is available
-          if [ -z "$PAT_TOKEN" ]; then
-            echo "Error: PAT_TOKEN secret is not set. Please configure a Personal Access Token."
+          # Validate that GH_TOKEN is available
+          if [ -z "$GH_TOKEN" ]; then
+            echo "Error: GH_TOKEN secret is not set. Please configure a Personal Access Token."
             exit 1
           fi
           
           # Clone the target repository
           echo "Cloning jounaidayoub.github.io repository..."
-          git clone https://x-access-token:${PAT_TOKEN}@github.com/Jounaidayoub/jounaidayoub.github.io.git gh-pages-repo
+          git clone https://jounaidayoub:${GH_TOKEN}@github.com/Jounaidayoub/jounaidayoub.github.io.git gh-pages-repo
           
           # Configure git
           cd gh-pages-repo
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          git config user.name "Ayoub"
+          git config user.email "123956897+Jounaidayoub@users.noreply.github.com"
+          
+          # Remove GitHub Actions authentication header to avoid conflicts
+          git config --unset-all http.https://github.com/.extraheader
           
           # Clear existing content (except .git)
           find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name '..' -exec rm -rf {} +
@@ -80,9 +72,9 @@ jobs:
           
           # Commit and push changes
           git add .
-          git commit -m "Deploy portfolio from ${{ github.repository }}@${{ github.sha }}"
-          git push origin main
+          git commit -m "Deploy to GitHub Pages ${{ github.sha }}"
+          git push https://jounaidayoub:${GH_TOKEN}@github.com/Jounaidayoub/jounaidayoub.github.io.git main
           
-          echo "✅ Successfully deployed to GitHub Pages!"
+          echo "✅ Successfully deployed to external GitHub Pages!"
           echo "🌐 Site will be available at: https://jounaidayoub.github.io"
           echo "🌐 Custom domain: https://ayooub.me (if DNS is configured)"

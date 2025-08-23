@@ -1,6 +1,8 @@
 # GitHub Pages Deployment Setup
 
-This repository is configured to automatically deploy to `jounaidayoub.github.io` using GitHub Actions.
+This repository is configured to automatically deploy to both GitHub Pages locations using GitHub Actions:
+1. **This repository's GitHub Pages**: `https://jounaidayoub.github.io/ayooub.me`
+2. **External repository**: `https://jounaidayoub.github.io` (main portfolio site)
 
 ## Required Setup
 
@@ -21,7 +23,7 @@ The deployment workflow requires a Personal Access Token with appropriate permis
 
 1. Go to this repository's Settings → Secrets and variables → Actions
 2. Click "New repository secret"
-3. Name: `PAT_TOKEN`
+3. Name: `GH_TOKEN`
 4. Value: Paste the PAT you generated
 5. Click "Add secret"
 
@@ -29,14 +31,16 @@ The deployment workflow requires a Personal Access Token with appropriate permis
 
 1. **Trigger**: Workflow runs on every push to the `main` branch
 2. **Build**: The application is built using `npm run build`
-3. **Deploy**: The built files from `dist/` are pushed to the `jounaidayoub.github.io` repository
-4. **Result**: The portfolio is available at `https://jounaidayoub.github.io`
+3. **Dual Deploy**: 
+   - Built files are deployed to this repository's GitHub Pages using the peaceiris action
+   - Built files are also pushed to the `jounaidayoub.github.io` repository for the main site
+4. **Result**: The portfolio is available at both locations
 
 ## Troubleshooting
 
-### Error: "PAT_TOKEN secret is not set"
-- Make sure you've added the `PAT_TOKEN` secret as described above
-- Verify the secret name is exactly `PAT_TOKEN`
+### Error: "GH_TOKEN secret is not set"
+- Make sure you've added the `GH_TOKEN` secret as described above
+- Verify the secret name is exactly `GH_TOKEN`
 
 ### Error: "Permission denied"
 - Check that your PAT has `repo` scope permissions
@@ -47,10 +51,16 @@ The deployment workflow requires a Personal Access Token with appropriate permis
 - Ensure the `jounaidayoub.github.io` repository exists
 - Check that the repository name is spelled correctly in the workflow
 
+### Authentication Issues with External Repository
+- The workflow automatically removes GitHub Actions authentication headers that can interfere with external repository access
+- This is handled by: `git config --unset-all http.https://github.com/.extraheader`
+
 ## Testing
 
 To test the deployment:
 1. Make any small change to the repository
 2. Push to the `main` branch
 3. Check the Actions tab for the workflow status
-4. If successful, changes should appear at `https://jounaidayoub.github.io`
+4. If successful, changes should appear at:
+   - `https://jounaidayoub.github.io/ayooub.me` (this repo's GitHub Pages)
+   - `https://jounaidayoub.github.io` (main portfolio site)
