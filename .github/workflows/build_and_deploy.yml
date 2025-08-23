@@ -1,7 +1,5 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI
+# Build and deploy portfolio to GitHub Pages
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
@@ -12,53 +10,77 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [ 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '22.x'
           cache: "npm"
-      - run: npm ci -f
-      - run: npm run build --if-present
-      - uses: peaceiris/actions-gh-pages@v4
-        if: github.event_name == 'push'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-      - name: Push to gh pages root repo (Jounaidayoub.github.io)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-
-          git clone https://user:$GH_TOKEN@github.com/Jounaidayoub/jounaidayoub.github.io/ 
-
-
-          cd jounaidayoub.github.io/
-
-
-          git config --global user.name "Ayoub"
-          git config --global user.email "123956897+Jounaidayoub@users.noreply.github.com"
-          git config --unset-all http.https://github.com/.extraheader
-
           
+      - name: Install dependencies
+        run: npm ci -f
+        
+      - name: Build application
+        run: npm run build
+        
+      - name: Upload build artifacts
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          
+      - name: Deploy to GitHub Pages repository
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          # Validate that PAT_TOKEN is available
+          if [ -z "$PAT_TOKEN" ]; then
+            echo "Error: PAT_TOKEN secret is not set. Please configure a Personal Access Token."
+            exit 1
+          fi
+          
+          # Clone the target repository
+          echo "Cloning jounaidayoub.github.io repository..."
+          git clone https://x-access-token:${PAT_TOKEN}@github.com/Jounaidayoub/jounaidayoub.github.io.git gh-pages-repo
+          
+          # Configure git
+          cd gh-pages-repo
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          # Clear existing content (except .git)
+          find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name '..' -exec rm -rf {} +
+          
+          # Copy new build files
+          echo "Copying build files..."
           cp -r ../dist/* .
           
-          git add .
-
-          git commit -m "Deploy to GitHub Pages  ${{ github.sha }} "
-
-          # git push origin main 
-
-          git push https://jounaidayoub:${GH_TOKEN}@github.com/Jounaidayoub/jounaidayoub.github.io.git main
-
+          # Check if there are any changes
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes to deploy"
+            exit 0
+          fi
           
-        
-
-        
+          # Commit and push changes
+          git add .
+          git commit -m "Deploy portfolio from ${{ github.repository }}@${{ github.sha }}"
+          git push origin main
+          
+          echo "✅ Successfully deployed to GitHub Pages!"
