@@ -1,6 +1,44 @@
-# React + TypeScript + Vite
+# Ayoub Jounaid Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with React, TypeScript, and Vite. The site showcases projects, skills, and professional information.
+
+## 🚀 Live Site
+
+Visit the live portfolio at: [https://jounaidayoub.github.io](https://jounaidayoub.github.io)
+
+## 🔧 Development
+
+This project uses Vite for fast development and building.
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+### Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## 🚀 Deployment
+
+This repository automatically deploys to GitHub Pages when changes are pushed to the `main` branch. See [Deployment Setup](.github/DEPLOYMENT.md) for configuration details.
+
+## 🛠 Tech Stack
 
 Currently, two official plugins are available:
 
