@@ -28,14 +28,14 @@ jobs:
         run: npm run build
         
       - name: Deploy to GitHub Pages (this repo)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+       # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
         
       - name: Deploy to external GitHub Pages repository
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+       # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
