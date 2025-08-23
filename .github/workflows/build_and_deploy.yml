@@ -84,3 +84,5 @@ jobs:
           git push origin main
           
           echo "✅ Successfully deployed to GitHub Pages!"
+          echo "🌐 Site will be available at: https://jounaidayoub.github.io"
+          echo "🌐 Custom domain: https://ayooub.me (if DNS is configured)"
