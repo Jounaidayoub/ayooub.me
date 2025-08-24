@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, ExternalLink, Calendar } from "lucide-react";
-import StackIcon from "tech-stack-icons";
+// import StackIcon from "tech-stack-icons";
 
 import Carousel from "./components/ui/Carousel";
 
@@ -86,12 +86,16 @@ const ProjectCard = (project: Project) => {
                 variant="outline"
                 className="bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200 animate-in fade-in slide-in-from-bottom-2"
               >
-                {tech.icon && (
-                  <StackIcon
-                    name={tech.icon}
-                    className="inline-block ml-1 w-4 h-4"
-                  />
-                )}
+                {/* {tech.icon && (
+                  // i am removing  the icons cuz , they were adding a 1MB to the bundle size( after compression) ,
+                  // without compression it was 3.6MB hhhhhhh
+                  // the budle took 24s to load on 3g connection (devtools throttling) , 
+                  // Anyways why i am writing this comment
+                  // <StackIcon
+                  //   name={tech.icon}
+                  //   className="inline-block ml-1 w-4 h-4"
+                  // />
+                )} */}
                 {tech.name}
               </Badge>
             ))}
