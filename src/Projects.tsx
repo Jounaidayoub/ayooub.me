@@ -110,7 +110,7 @@ const Projects = () => {
     <>
       <div
         id="Projects"
-        className="flex min-h-0 w-full items-center justify-center flex-col gap-4 mx-5  "
+        className=" px-4 flex min-h-0 w-full flex-col items-center justify-center gap-4"
       >
         <h1 className="text-3xl font-bold ">Projects</h1>
         <p className=" text-lg  dark:text-zinc-300 text-zinc-750 max-w-2xl text-center pb-10">
