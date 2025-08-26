@@ -5,13 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { visualizer } from "rollup-plugin-visualizer";
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(),
-    visualizer({
-          open: true, // Automatically open the report in the browser
-          filename: 'bundle-analysis.html', // Output file name
-          gzipSize: true, // Show gzipped size
-        }),
-  ],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
