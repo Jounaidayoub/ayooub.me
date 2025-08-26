@@ -24,8 +24,6 @@
 //               Ayouub
 //             </UnderlineToBackground>
 //           </div>
-          
-         
 
 //           <div className="flex flex-row gap-4 justify-between">
 //             <a className="hover:underline " href="#">
@@ -60,11 +58,8 @@
 
 // export default Navbar;
 
-
-import React, { useEffect, useState } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import UnderlineToBackground from "./fancy/components/text/underline-to-background";
-import { toast } from "sonner";
 
 const Navbar = () => {
   const [dark, setDark] = useState<boolean>(true);
@@ -80,21 +75,27 @@ const Navbar = () => {
   }, [dark]);
 
   return (
-    <header className="pt-5 text-lg font-mono mx-5 sticky top-0 z-10 ">
-      <div className="flex flex-row justify-between items-center">
+    <header className="sticky top-0 z-10 mx-5 pt-5 font-mono text-lg">
+      <div className="flex flex-row items-center justify-between">
         {/* Branding */}
-        <div className="text-2xl font-serif ml-5 underline">
+        <div className="ml-5 font-serif text-2xl underline">
           <UnderlineToBackground targetTextColor="black">
             Ayouub
           </UnderlineToBackground>
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex flex-row gap-4 items-center">
-          <a className="hover:underline" href="#">About</a>
-          <a className="hover:underline" href="#Projects">Projects</a>
+        <nav className="hidden flex-row items-center gap-4 md:flex">
+          <a className="hover:underline" href="#">
+            About
+          </a>
+          <a className="hover:underline" href="#Projects">
+            Projects
+          </a>
           {/* <a className="hover:underline" href="#">Blog</a> */}
-          <a className="hover:underline" href="#contact">Contact</a>
+          <a className="hover:underline" href="#contact">
+            Contact
+          </a>
         </nav>
 
         {/* Theme Switch */}
@@ -106,25 +107,43 @@ const Navbar = () => {
           />
           {/* Hamburger for mobile */}
           <button
-            className="ml-4 md:hidden p-2 rounded focus:outline-none"
+            className="ml-4 rounded p-2 focus:outline-none md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
             {/* Simple hamburger icon */}
-            <span className="block w-6 h-0.5 bg-black dark:bg-white mb-1"></span>
-            <span className="block w-6 h-0.5 bg-black dark:bg-white mb-1"></span>
-            <span className="block w-6 h-0.5 bg-black dark:bg-white"></span>
+            <span className="mb-1 block h-0.5 w-6 bg-black dark:bg-white"></span>
+            <span className="mb-1 block h-0.5 w-6 bg-black dark:bg-white"></span>
+            <span className="block h-0.5 w-6 bg-black dark:bg-white"></span>
           </button>
         </div>
       </div>
-    
+
       {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="md:hidden flex flex-col gap-4 mt-2 bg-white dark:bg-gray-900 p-4 rounded shadow rounded-2xl">
-          <a className="hover:underline" href="#" onClick={() => setMenuOpen(false)}>About</a>
-          <a className="hover:underline" href="#Projects" onClick={() => setMenuOpen(false)}>Projects</a>
+        <nav className="mt-2 flex flex-col gap-4 rounded rounded-2xl bg-white p-4 shadow md:hidden dark:bg-gray-900">
+          <a
+            className="hover:underline"
+            href="#"
+            onClick={() => setMenuOpen(false)}
+          >
+            About
+          </a>
+          <a
+            className="hover:underline"
+            href="#Projects"
+            onClick={() => setMenuOpen(false)}
+          >
+            Projects
+          </a>
           {/* <a className="hover:underline" href="#" onClick={() => setMenuOpen(false)}>Blog</a> */}
-          <a className="hover:underline" href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a
+            className="hover:underline"
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact
+          </a>
         </nav>
       )}
     </header>

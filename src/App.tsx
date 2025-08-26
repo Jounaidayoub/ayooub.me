@@ -17,15 +17,14 @@ const App = () => {
   return (
     <>
       <Toaster theme="dark" richColors={true} />
-      <BackgroundBeams className="opacity-80 z-0 pointer-events-none"></BackgroundBeams>
+      <BackgroundBeams className="pointer-events-none z-0 opacity-80"></BackgroundBeams>
       <Base>
         <Navbar></Navbar>
-       
+
         <HeroSection></HeroSection>
 
         <Projects></Projects>
         <Contact></Contact>
-        
       </Base>
     </>
     // </div>

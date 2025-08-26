@@ -30,7 +30,7 @@ export type Project = {
 
 const ProjectCard = (project: Project) => {
   return (
-    <Card className="group relative flex flex-col w-full border-zinc-200 dark:border-zinc-700 overflow-hidden p-0 transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/20 dark:hover:shadow-zinc-800/20 hover:-translate-y-2 bg-amber-50 sha dark:bg-zinc-900">
+    <Card className="group mx-auto  relative flex w-full flex-col overflow-hidden border-zinc-200 bg-amber-50 p-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-zinc-200/20 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:shadow-zinc-800/20">
       {/* Image Container with Overlay */}
       {project.image && (
         <div className="relative overflow-hidden">
@@ -43,7 +43,7 @@ const ProjectCard = (project: Project) => {
             loop={true}
             // round={true}
           ></Carousel>
-          <div className="absolute pointer-events-none inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
       )}
       {project.video && (
@@ -56,19 +56,19 @@ const ProjectCard = (project: Project) => {
             playsInline
             className="pointer-events-none mx-auto w-full object-cover object-top" // needed because random black line at bottom of video
           />
-          <div className="absolute pointer-events-none inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
       )}
 
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="space-y-1">
-            <CardTitle className="text-xl font-bold text-zinc-00 dark:from-zinc-100 dark:to-zinc-400 bg-clip-text ">
+            <CardTitle className="text-zinc-00 bg-clip-text text-xl font-bold dark:from-zinc-100 dark:to-zinc-400">
               {project.title}
             </CardTitle>
           </div>
         </div>
-        <CardDescription className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed">
+        <CardDescription className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
           {project.description}
         </CardDescription>
       </CardHeader>
@@ -84,7 +84,7 @@ const ProjectCard = (project: Project) => {
               <Badge
                 key={tech.name}
                 variant="outline"
-                className="bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200 animate-in fade-in slide-in-from-bottom-2"
+                className="animate-in fade-in slide-in-from-bottom-2 bg-zinc-100 text-zinc-700 transition-colors duration-200 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
               >
                 {/* {tech.icon && (
                   // i am removing  the icons cuz , they were adding a 1MB to the bundle size( after compression) ,
@@ -103,29 +103,29 @@ const ProjectCard = (project: Project) => {
         </div>
       </CardContent>
 
-      <CardFooter className="pb-4 flex gap-3">
+      <CardFooter className="flex gap-3 pb-4">
         {project.codeLink && (
           <Button asChild variant={"outline"}>
             <a
               href={project.codeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 group/btn border-zinc-300 dark:border-zinc-600 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-200 hover:shadow-lg bg-transparent flex items-center justify-center gap-2"
+              className="group/btn flex flex-1 items-center justify-center gap-2 border-zinc-300 bg-transparent transition-all duration-200 hover:border-zinc-400 hover:shadow-lg dark:border-zinc-600 dark:hover:border-zinc-500"
             >
-              <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
+              <Github className="mr-2 h-4 w-4 transition-transform group-hover/btn:rotate-12" />
               Source Code
             </a>
           </Button>
         )}
         {project.demoLink && (
-          <Button asChild >
+          <Button asChild>
             <a
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 group/btn  bg-zinc-900 dark:bg-zinc-200 text-red-500 dark:text-red-700 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-200 hover:shadow-lg flex items-center justify-center gap-2"
+              className="group/btn flex flex-1 items-center justify-center gap-2 bg-zinc-900 text-red-500 transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg dark:bg-zinc-200 dark:text-red-700 dark:hover:bg-zinc-200"
             >
-              <ExternalLink className="w-4 h-4 mr-2 transition-transform group-hover/btn:-rotate-12" />
+              <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover/btn:-rotate-12" />
               Live Demo
             </a>
           </Button>
