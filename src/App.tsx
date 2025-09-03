@@ -20,6 +20,7 @@ const App = () => {
       <BackgroundBeams className="pointer-events-none z-0 opacity-80"></BackgroundBeams>
       <Base>
         <Navbar></Navbar>
+            
 
         <HeroSection></HeroSection>
 
