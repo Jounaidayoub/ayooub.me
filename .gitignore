@@ -25,3 +25,6 @@ dist-ssr
 *.sw?
 vite-env.d.ts
 .vite
+*.aux
+*.out
+*.log
