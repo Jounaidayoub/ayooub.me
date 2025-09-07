@@ -31,6 +31,9 @@ const Navbar = () => {
           <a className="hover:underline" href="#">
             About
           </a>
+          <a className="hover:underline" href="#Experience">
+            Experience
+          </a>
           <a className="hover:underline" href="#Projects">
             Projects
           </a>
@@ -70,6 +73,13 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
           >
             About
+          </a>
+          <a
+            className="hover:underline"
+            href="#Experience"
+            onClick={() => setMenuOpen(false)}
+          >
+            Experience
           </a>
           <a
             className="hover:underline"

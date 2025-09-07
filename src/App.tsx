@@ -4,12 +4,8 @@ import Base from "./Base";
 import HeroSection from "./HeroSection";
 import { BackgroundBeams } from "./components/ui/background-beams";
 import { Toaster } from "sonner";
-import { toast } from "sonner";
-import { Icons } from "./icons";
-// import { ProjectCard } from "./project-card";
 import Projects from "./Projects";
-import { Car } from "lucide-react";
-import Carousel from "./components/ui/Carousel";
+import Experience from "./Experience";
 import Contact from "./Contact";
 
 const App = () => {
@@ -24,6 +20,8 @@ const App = () => {
 
         <HeroSection></HeroSection>
 
+        <Experience></Experience>
+        
         <Projects></Projects>
         <Contact></Contact>
       </Base>
