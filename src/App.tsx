@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Base from "./Base";
 import HeroSection from "./HeroSection";
+import Experience from "./Experience";
 import { BackgroundBeams } from "./components/ui/background-beams";
 import { Toaster } from "sonner";
 import { toast } from "sonner";
@@ -20,10 +21,8 @@ const App = () => {
       <BackgroundBeams className="pointer-events-none z-0 opacity-80"></BackgroundBeams>
       <Base>
         <Navbar></Navbar>
-            
-
         <HeroSection></HeroSection>
-
+        <Experience></Experience>
         <Projects></Projects>
         <Contact></Contact>
       </Base>
