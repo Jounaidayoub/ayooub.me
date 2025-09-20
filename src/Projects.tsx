@@ -15,7 +15,7 @@ const projectData: Project[] = [
       { name: "Durable Objects" }, 
       { name: "TypeScript", icon: "typescript" },
       { name: "Node.js", icon: "nodejs" },
-      { name: "Hono", icon: "hono" },
+      { name: "Hono", icon: "" },
     ],
     codeLink: "https://github.com/jounaidayoub/dotunnel",
     demoLink: "https://www.npmjs.com/package/dotunnel",

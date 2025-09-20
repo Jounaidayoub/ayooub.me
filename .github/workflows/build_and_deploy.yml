@@ -29,10 +29,12 @@ jobs:
       
       - run: |
           npm ci -f
-          ls
-          tree ../
+          
+          
+          
           npm run build --if-present
         
+      
       - uses: peaceiris/actions-gh-pages@v4
         if: github.event_name == 'push'
         with:
@@ -51,9 +53,7 @@ jobs:
 
       - run: |
           rm -rf ./*
-          pwd
-          ls ../
-          ls
+          
           
           cp -r ../dist/* .
         working-directory: ./secondary-repo
