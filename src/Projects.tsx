@@ -4,7 +4,26 @@ import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
 const projectData: Project[] = [
+
+    {
+    title: "DoTunnel",
+    description:
+      "A lightweight HTTP tunnel proxy built on Cloudflare Workers and Durable Objects. It allows you to expose your local development server to the internet with a secure, public URL. Perfect for sharing work-in-progress, testing webhooks, or debugging APIs without complex network setups.",
+    video: "videos/dotunnel.mp4",
+    techStack: [
+      { name: "Cloudflare Workers", icon: "cloudflare" },
+      { name: "Durable Objects" }, 
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: "Hono", icon: "hono" },
+    ],
+    codeLink: "https://github.com/jounaidayoub/dotunnel",
+    demoLink: "https://www.npmjs.com/package/dotunnel",
+  },
+
   {
+
+   
     title: "URL Shortener",
     description:
       "A URL shortener that allows users to shorten long URLs into short links. it does run on Edge. using Cloudflare Workers, it provides a fast and nearly instant experience.",
