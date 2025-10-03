@@ -27,7 +27,7 @@ const HeroSection = ({ children }: Props) => {
             />{" "}
             , I'm Ayoub ! 👋
           </h1>
-          <p className="text-muted-foreground max-w-2xl font-serif text-lg">
+          <p className="text-foreground max-w-2xl font-mono text-lg">
             I am a software engineering student. I do{" "}
             <Underline>fullstack development</Underline> and I am kind of
             interested more toward backend stuff . I also enjoy{" "}
