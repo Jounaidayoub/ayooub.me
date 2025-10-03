@@ -30,7 +30,7 @@ export type Project = {
 
 const ProjectCard = (project: Project) => {
   return (
-    <Card className="group mx-auto  relative flex w-full flex-col overflow-hidden border-zinc-200 bg-amber-50 p-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-zinc-200/20 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:shadow-zinc-800/20">
+    <Card className="group mx-auto  relative flex w-full flex-col overflow-hidden border-border bg-card p-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10">
       {/* Image Container with Overlay */}
       {project.image && (
         <div className="relative overflow-hidden">
@@ -65,12 +65,12 @@ const ProjectCard = (project: Project) => {
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="space-y-1">
-            <CardTitle className="text-zinc-00 bg-clip-text text-xl font-bold dark:from-zinc-100 dark:to-zinc-400">
+            <CardTitle className="text-card-foreground bg-clip-text text-xl font-bold">
               {project.title}
             </CardTitle>
           </div>
         </div>
-        <CardDescription className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+        <CardDescription className="text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </CardDescription>
       </CardHeader>
@@ -78,7 +78,7 @@ const ProjectCard = (project: Project) => {
       <CardContent className="flex-1 space-y-4">
         {/* Tech Stack Badges */}
         <div className="space-y-2">
-          <h4 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+          <h4 className="text-sm font-semibold text-card-foreground">
             Tech Stack
           </h4>
           <div className="flex flex-wrap gap-2">
@@ -86,7 +86,7 @@ const ProjectCard = (project: Project) => {
               <Badge
                 key={tech.name}
                 variant="outline"
-                className="animate-in fade-in slide-in-from-bottom-2 bg-zinc-100 text-zinc-700 transition-colors duration-200 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                className="animate-in fade-in slide-in-from-bottom-2 bg-secondary text-secondary-foreground transition-colors duration-200 hover:bg-secondary/80"
               >
                 {/* {tech.icon && (
                   // i am removing  the icons cuz , they were adding a 1MB to the bundle size( after compression) ,
@@ -112,7 +112,7 @@ const ProjectCard = (project: Project) => {
               href={project.codeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/btn flex flex-1 items-center justify-center gap-2 border-zinc-300 bg-transparent transition-all duration-200 hover:border-zinc-400 hover:shadow-lg dark:border-zinc-600 dark:hover:border-zinc-500"
+              className="group/btn flex flex-1 items-center justify-center gap-2 border-border bg-transparent transition-all duration-200 hover:border-border/80 hover:shadow-lg"
             >
               <Github className="mr-2 h-4 w-4 transition-transform group-hover/btn:rotate-12" />
               Source Code
@@ -125,7 +125,7 @@ const ProjectCard = (project: Project) => {
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/btn flex flex-1 items-center justify-center gap-2 bg-zinc-900 text-red-500 transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg dark:bg-zinc-200 dark:text-red-700 dark:hover:bg-zinc-200"
+              className="group/btn flex flex-1 items-center justify-center gap-2 bg-primary text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg"
             >
               <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover/btn:-rotate-12" />
               Live Demo

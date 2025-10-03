@@ -131,7 +131,7 @@ const Projects = () => {
         className=" px-4 flex min-h-0 w-full flex-col items-center justify-center gap-4"
       >
         <h1 className="text-3xl font-bold">Projects</h1>
-        <p className="text-zinc-750 max-w-2xl pb-10 text-center text-lg dark:text-zinc-300">
+        <p className="text-muted-foreground max-w-2xl pb-10 text-center text-lg">
           Here are some of the projects I have worked on recently. You can find
           more details and code on my GitHub profile.
         </p>
@@ -147,7 +147,7 @@ const Projects = () => {
               href="https://github.com/jounaidayoub"
               target="_blank"
               rel="noopener noreferrer"
-              className="group/btn flex flex-1 items-center justify-center gap-2 bg-zinc-900 text-white transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+              className="group/btn flex flex-1 items-center justify-center gap-2 bg-primary text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg"
             >
               For more projects, visit my GitHub
               <Github className="mr-2 h-4 w-4 transition-transform group-hover/btn:rotate-12" />

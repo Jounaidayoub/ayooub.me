@@ -27,7 +27,7 @@ const HeroSection = ({ children }: Props) => {
             />{" "}
             , I'm Ayoub ! 👋
           </h1>
-          <p className="text-zinc-750 max-w-2xl font-serif text-lg dark:text-zinc-300">
+          <p className="text-muted-foreground max-w-2xl font-serif text-lg">
             I am a software engineering student. I do{" "}
             <Underline>fullstack development</Underline> and I am kind of
             interested more toward backend stuff . I also enjoy{" "}
@@ -36,10 +36,10 @@ const HeroSection = ({ children }: Props) => {
             <Underline>LLMs</Underline> and their applications.
           </p>
           {/* two buttons to download my resume or check my github */}
-          <div className="mt-5 flex flex-row gap-2">
+          <div className="mt-5 flex flex-row  gap-2">
             <Button
               asChild
-              className="group/btn group flex w-2/4 items-center justify-center gap-2 bg-zinc-900 text-white transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+              className="group/btn group bg-primary text-primary-foreground hover:bg-primary/90 flex w-2/4 items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg"
             >
               <a
                 href={"/resume.pdf"}
@@ -69,7 +69,7 @@ const HeroSection = ({ children }: Props) => {
           </div>
         </div>
 
-        <div className="w-50 rounded-full border-2 border-zinc-900 p-2 dark:border-zinc-100">
+        <div className="border-foreground w-50 rounded-full border-2 p-2">
           <img
             className="aspect-square rounded-full object-cover"
             src="/images/pfp.webp"
