@@ -3,10 +3,18 @@
 html {
   scroll-behavior: smooth;
 }
-
+body {
+  background-image: radial-gradient(rgba(75, 75, 75, 0.315) 1px, transparent 0);
+  background-size: 20px 20px;
+  @apply  dark:bg-zinc-900 dark:text-white text-zinc-900 bg-amber-100 transition duration-500 
+}
+/* body{
 body{
-    @apply  dark:bg-zinc-900 dark:text-white text-zinc-900 bg-amber-100 transition duration-500
+body{
 
 }
+}
+}
+} */
 
 @custom-variant dark (&:where(.dark, .dark *));

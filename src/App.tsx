@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <Toaster theme="dark" richColors={true} />
-      <BackgroundBeams className="pointer-events-none z-0 opacity-80"></BackgroundBeams>
+      <BackgroundBeams className="pointer-events-none fixed z-0 opacity-40"></BackgroundBeams>
       <Base>
         <Navbar></Navbar>
         <HeroSection></HeroSection>
