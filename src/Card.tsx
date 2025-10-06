@@ -8,10 +8,29 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink, Calendar } from "lucide-react";
-// import StackIcon from "tech-stack-icons";
+import { Github, ExternalLink } from "lucide-react";
 
 import Carousel from "./components/ui/Carousel";
+
+// Tech Stack Icons from @svgl registry
+import  {ReactLight}  from "@/components/ui/svgs/reactLight";
+import { Typescript } from "@/components/ui/svgs/typescript";
+import { Cloudflare } from "@/components/ui/svgs/cloudflare";
+import { Nodejs } from "@/components/ui/svgs/nodejs";
+import { Tailwindcss } from "@/components/ui/svgs/tailwindcss";
+import { Angular } from "@/components/ui/svgs/angular";
+import { Redis } from "@/components/ui/svgs/redis";
+import { Python } from "@/components/ui/svgs/python";
+import { Docker } from "@/components/ui/svgs/docker";
+import { Php } from "@/components/ui/svgs/php";
+import { Mysql } from "@/components/ui/svgs/mysql";
+import { Javascript } from "@/components/ui/svgs/javascript";
+import { Nestjs } from "@/components/ui/svgs/nestjs";
+import { Html5 } from "@/components/ui/svgs/html5";
+import { CssOld } from "@/components/ui/svgs/cssOld";
+import { ApacheKafkaLogo } from "@/components/ui/svgs/apacheKafkaLogo";
+import { Fastapi } from "@/components/ui/svgs/fastapi";
+import { Hono } from "@/components/ui/svgs/hono";
 
 export type TechStack = {
   name: string;
@@ -26,6 +45,35 @@ export type Project = {
   codeLink: string;
   demoLink?: string;
   video?: string;
+};
+
+// Icon mapping for tech stack
+const techStackIcons: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+  react: ReactLight,
+  typescript: Typescript,
+  cloudflare: Cloudflare,
+  "cloudflare-workers": Cloudflare,
+  nodejs: Nodejs,
+  node: Nodejs,
+  tailwindcss: Tailwindcss,
+  tailwind: Tailwindcss,
+  angular: Angular,
+  redis: Redis,
+  python: Python,
+  docker: Docker,
+  php: Php,
+  mysql: Mysql,
+  javascript: Javascript,
+  js: Javascript,
+  nestjs: Nestjs,
+  html5: Html5,
+  html: Html5,
+  css: CssOld,
+  css3: CssOld,
+  kafka: ApacheKafkaLogo,
+  "apache-kafka": ApacheKafkaLogo,
+  fastapi: Fastapi,
+  hono: Hono,
 };
 
 const ProjectCard = (project: Project) => {
@@ -82,25 +130,21 @@ const ProjectCard = (project: Project) => {
             Tech Stack
           </h4>
           <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech) => (
-              <Badge
-                key={tech.name}
-                variant="outline"
-                className="animate-in fade-in slide-in-from-bottom-2 bg-secondary text-secondary-foreground transition-colors duration-200 hover:bg-secondary/80"
-              >
-                {/* {tech.icon && (
-                  // i am removing  the icons cuz , they were adding a 1MB to the bundle size( after compression) ,
-                  // without compression it was 3.6MB hhhhhhh
-                  // the budle took 24s to load on 3g connection (devtools throttling) , 
-                  // Anyways why i am writing this comment
-                  // <StackIcon
-                  //   name={tech.icon}
-                  //   className="inline-block ml-1 w-4 h-4"
-                  // />
-                )} */}
-                {tech.name}
-              </Badge>
-            ))}
+            {project.techStack.map((tech) => {
+              const IconComponent = tech.icon ? techStackIcons[tech.icon.toLowerCase()] : null;
+              return (
+                <Badge
+                  key={tech.name}
+                  variant="outline"
+                  className="animate-in fade-in slide-in-from-bottom-2 flex items-center gap-1.5 bg-secondary text-secondary-foreground transition-colors duration-200 hover:bg-secondary/80"
+                >
+                  {IconComponent && (
+                    <IconComponent className="!w-4 !h-4" />
+                  )}
+                  {tech.name}
+                </Badge>
+              );
+            })}
           </div>
         </div>
       </CardContent>
