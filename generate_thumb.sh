@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#dfdf:
 # Define variables for input and output directories
 VIDEO_DIR="public/videos"
 THUMBNAIL_DIR="public/images/thumbnails"
