@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import UnderlineToBackground from "./fancy/components/text/underline-to-background";
+import Link from "./Link";
 
 const Navbar = () => {
   const [dark, setDark] = useState<boolean>(true);
@@ -22,7 +23,11 @@ const Navbar = () => {
         {/* Branding */}
         <div className="ml-5 font-serif text-2xl underline">
           <UnderlineToBackground targetTextColor="black">
-            Ayouub
+           <a href="/">
+
+            ayooub.me
+           </a>
+            {/* </Link> */}
           </UnderlineToBackground>
         </div>
 
