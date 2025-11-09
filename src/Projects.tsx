@@ -6,7 +6,7 @@ const projectData: Project[] = [
   {
     title: "DoTunnel",
     description:
-      "A lightweight HTTP tunnel proxy built on Cloudflare Workers and Durable Objects. It allows you to expose your local development server to the internet with a secure, public URL. Perfect for sharing work-in-progress, testing webhooks, or debugging APIs without complex network setups.",
+      "A lightweight HTTP tunnel proxy built on Cloudflare Durable Objects. It allows you to expose your local development server to the internet with a secure, public URL. Perfect for sharing work-in-progress, testing webhooks, or debugging APIs without complex network setups.",
     video: "videos/dotunnel.mp4",
     techStack: [
       { name: "Cloudflare Workers", icon: "cloudflare-workers" },
