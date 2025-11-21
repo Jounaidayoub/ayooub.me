@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CalendarDays, MapPin } from "lucide-react"
-// import Image from "next/image"
+
 import { useState } from "react"
 
 interface ExperienceCardProps {
